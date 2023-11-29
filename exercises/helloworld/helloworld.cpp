@@ -1,6 +1,9 @@
 #include <systemc.h>
 #include <stdio.h>
 
+// simple helloworld program to test enviroment
+// further explanation in the similar "explicitctr" files
+
 SC_MODULE(hello_world)
 {
     SC_CTOR(hello_world)
