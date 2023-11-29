@@ -1,4 +1,5 @@
 #include <systemc.h>
+#include <stdio.h>
 
 SC_MODULE(hello_world)
 {
