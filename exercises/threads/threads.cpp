@@ -1,14 +1,18 @@
 #include <systemc.h>
 #include <iostream>
 
-SC_MODULE(threads)
+// threads of a module (as well as methods)
+// are triggered once by default and after that 
+// by different methods (waits)
+
+SC_MODULE(Threads)
 {
     sc_clock clk; // create a clock 
 
-    SC_CTOR(threads) : clk("clk", 1, SC_SEC) // and set its period to 1 second
+    SC_CTOR(Threads) : clk("clk", 1, SC_SEC) // and set its period to 1 second
     {
-        SC_THREAD(thread);
-        SC_CTHREAD(cthread, clk);
+        SC_THREAD(thread);          // register a thread
+        SC_CTHREAD(cthread, clk);   // register a clocked thread
     }
 
     void thread()
@@ -32,7 +36,7 @@ SC_MODULE(threads)
 
 int sc_main(int argc, char** argv)
 {
-    threads threads("threads");
+    Threads threads("threads");
     std::cout << "starting at " << sc_time_stamp() << std::endl;
     sc_start(5, SC_SEC); // start simulation for 5 seconds
     std::cout << "ending at " << sc_time_stamp() << std::endl;
