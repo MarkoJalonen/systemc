@@ -44,14 +44,17 @@ SC_MODULE(Stages)
     {
         std::cout << sc_time_stamp() << " : before end of elaboration" << std::endl;
     }
+
     void end_of_elaboration() 
     {
         std::cout << sc_time_stamp() << " : end of elaboration" << std::endl;
     }
+
     void start_of_simulation() 
     {
         std::cout << sc_time_stamp() << " : start of simulation" << std::endl;
     }
+    
     void end_of_simulation() 
     {
         std::cout << sc_time_stamp() << " : end of simulation" << std::endl;
