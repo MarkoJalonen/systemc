@@ -11,6 +11,7 @@ SC_MODULE(Concurrency)
         SC_THREAD(thread1);
         SC_THREAD(thread2);
     }
+    
     void thread1()
     {
         while(true)
