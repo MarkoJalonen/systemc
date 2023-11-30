@@ -1,24 +1,24 @@
 #include <systemc.h>
-#include <stdio.h>
+#include <iostream>
 
 // simple helloworld program to test enviroment
 // further explanation in the similar "explicitctr" files
 
-SC_MODULE(hello_world)
+SC_MODULE(HelloWorld)
 {
-    SC_CTOR(hello_world)
+    SC_CTOR(HelloWorld)
     {
         //empty constructor
     }
     void print_hello(void)
     {
-        cout << "Hello World!\n";
+        std::cout << "Hello World!\n";
     }
 };
 
 int sc_main(int argc, char** argv)
 {
-    hello_world hello("hello");
+    HelloWorld hello("hello");
     hello.print_hello();
     return 0;
 }
