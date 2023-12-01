@@ -40,7 +40,6 @@ SC_MODULE(Events)
             wait(event);
             std::cout << sc_time_stamp() << " : event catched\n";
         }
-        
     }
 };
 
