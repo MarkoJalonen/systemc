@@ -9,10 +9,18 @@
 
 // good practise to always call communication functions via a port if
 // they are outside of the module
-// calling member functions belonging to a child module's channel instance
-// should be made through an export of the child module
 // calling comm functions inside the same channel init module
 // without a port is allowed (known as portless channel access)
+
+// calling member functions belonging to a child module's channel instance
+// should be made through an export of the child module
+// an export provides an interface without implementing one 
+
+// submodule ports can be connected directly to each other 
+
+// the amount of possible channels the port can be bound to can be defined
+
+// there are specialized versions of ports for different channels and signals
 
 SC_MODULE(ModuleOne)
 {
@@ -80,11 +88,8 @@ SC_MODULE(ModuleTwo)
                 << " : outside read : " << port->read()
                 << std::endl;
             wait(); 
-        }
-        
-    }
-
-    
+        }   
+    }    
 };
 
 int sc_main(int argc, char** argv)
