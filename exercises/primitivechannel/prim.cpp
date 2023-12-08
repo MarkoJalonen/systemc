@@ -14,6 +14,16 @@
 // next_trigger()
 // wait();
 
+// first we will declare two interfaces with notify() and default_event()
+// these will then be implemented in a sc_prim_channel inheriting class
+// the class has a event object to be notified and passed
+// with the default_event() so it can be used with static sensitivity
+// modules using this channel will also use the interfaces for the ports
+
+// the hierarchical sc_channel is identical to sc_module
+// so it may processes, ports etc
+
+
 class GeneratorInterface : public sc_core::sc_interface 
 {
     public: 
@@ -23,7 +33,7 @@ class GeneratorInterface : public sc_core::sc_interface
 class ReceiverInterface : public sc_core::sc_interface 
 {
     public:
-        virtual const sc_core::sc_event& default_event() const = 0;
+        virtual const sc_core::sc_event& default_event  () const = 0;
 };
 
 class Interrupt : public sc_core::sc_prim_channel, public GeneratorInterface, public ReceiverInterface
@@ -76,7 +86,7 @@ SC_MODULE(Receiver)
     void receiveInterrupt()
     {
         while (true)
-        {
+        {   
             std::cout << sc_core::sc_time_stamp()
                 << " : interrupt received\n";
             wait();
