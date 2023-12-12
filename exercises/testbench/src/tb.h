@@ -1,4 +1,6 @@
 #include <systemc>
+#include <fstream>
+#include <string>
 
 SC_MODULE( TB )
 {
@@ -25,8 +27,8 @@ SC_MODULE( TB )
     sc_core::sc_trace_file *trac_file;
 
     // input and output files
-    FILE *input;
-    FILE *output;
+    std::ifstream input_file;
+    std::ofstream output_file;
 
     SC_CTOR( TB )
     {
