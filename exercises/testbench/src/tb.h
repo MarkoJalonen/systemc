@@ -5,7 +5,7 @@
 SC_MODULE( TB )
 {
     // outputs for clock and reset
-    sc_core::sc_out< bool > clk;
+    sc_core::sc_in< bool > clk;
     sc_core::sc_out< bool > rst;
 
     // data and handshake outputs to DUT

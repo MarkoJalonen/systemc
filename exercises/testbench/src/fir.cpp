@@ -55,6 +55,7 @@ void FIR::fir_main(void)
         }
 
         // set output valid, write the value and wait for output ready
+
         output_valid.write( 1 );
         output.write( output_value );
         do
